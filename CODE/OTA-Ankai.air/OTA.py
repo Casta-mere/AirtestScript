@@ -9,14 +9,14 @@ import log
 poco = AndroidUiautomationPoco(use_airtest_input=True, screenshot_each_action=False)
 auto_setup(__file__)
 
-# 看看云APP包名
 pkName = 'com.dropcoocam.ali'
 start_app(pkName)
+
 class OTA:
 
     def __init__ (self):
         self.bt_update = poco("com.dropcoocam.ali:id/bt_update")
-        self.bt_uodating = poco('com.dropcoocam.ali:id/tv_device_updating')
+        self.bt_updating = poco('com.dropcoocam.ali:id/tv_device_updating')
         self.bt_passive = poco('com.dropcoocam.ali:id/tv_device_passive_update_hint')
         self.count = 0
         self.log = log.classlog("OTA")
@@ -37,7 +37,6 @@ class OTA:
                 self.count += 1
                 self.log.log(f"OTA {self.count} times")
                 sleep(20)
-
 
 ota = OTA()
 ota.run()
